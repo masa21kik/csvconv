@@ -8,9 +8,9 @@ Gem::Specification.new do |spec|
   spec.version       = Csvconv::VERSION
   spec.authors       = ["masa21kik"]
   spec.email         = ["masa21kik@gmail.com"]
-  spec.description   = %q{TODO: Write a gem description}
-  spec.summary       = %q{TODO: Write a gem summary}
-  spec.homepage      = ""
+  spec.description   = %q{CSV converter to JSON, YAML, LTSV}
+  spec.summary       = %q{CSV converter to JSON, YAML, LTSV}
+  spec.homepage      = "https://github.com/masa21kik/csvconv"
   spec.license       = "MIT"
 
   spec.files         = `git ls-files`.split($/)

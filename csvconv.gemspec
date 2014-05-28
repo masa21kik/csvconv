@@ -5,7 +5,7 @@ require 'csvconv/version'
 
 Gem::Specification.new do |spec|
   spec.name          = 'csvconv'
-  spec.version       = Csvconv::VERSION
+  spec.version       = CSVConv::VERSION
   spec.authors       = ['masa21kik']
   spec.email         = ['masa21kik@gmail.com']
   spec.description   = %q(CSV converter to JSON, YAML, LTSV)

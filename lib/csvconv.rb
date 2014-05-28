@@ -1,5 +1,5 @@
 require 'csvconv/version'
 
 # CSV Converter
-module Csvconv
+module CSVConv
 end

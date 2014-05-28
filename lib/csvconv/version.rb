@@ -1,4 +1,4 @@
 # CSV converter
-module Csvconv
+module CSVConv
   VERSION = '0.0.1'
 end

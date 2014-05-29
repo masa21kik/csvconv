@@ -25,12 +25,11 @@ Or install it yourself as:
     $ csvconv --ltsv file.csv -o file.ltsv
 
     Options:
-        --json                 Output in JSON format
-        --yaml                 Output in YAML format
-        --ltsv                 Output in LTSV format
+            --json             Output in JSON format
+            --yaml             Output in YAML format
+            --ltsv             Output in LTSV format
         -s, --separator SEP    Set separator charactor (default is ',')
         -o, --output FILE      Write output to file
-        -k, --skip-header NUM  Ignore first NUM lines
         -H, --headers HEADERS  List of headers separated with ','
         -h, --help             Show this message
         -v, --version          Show version

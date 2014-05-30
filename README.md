@@ -2,6 +2,10 @@
 
 CSV converter to JSON, YAML, LTSV
 
+[![Build Status](https://travis-ci.org/masa21kik/csvconv.png?branch=master)](https://travis-ci.org/masa21kik/csvconv)
+[![Coverage Status](https://coveralls.io/repos/masa21kik/csvconv/badge.png)](https://coveralls.io/r/masa21kik/csvconv)
+[![Code Climate](https://codeclimate.com/github/masa21kik/csvconv.png?branch=master)](https://codeclimate.com/github/masa21kik/csvconv)
+
 ## Installation
 
 Add this line to your application's Gemfile:

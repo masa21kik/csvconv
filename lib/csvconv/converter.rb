@@ -7,13 +7,13 @@ module CSVConv
       @header = options[:header]
     end
 
-    def convert(input, output)
+    def convert(input)
       @header ||= Parser.read_header(input, @sep)
       hash_array = []
       while (line = input.gets)
         hash_array << Parser.parse_line(line, @header, @sep)
       end
-      output.puts Formatter.send(@format, hash_array)
+      Formatter.send(@format, hash_array)
     end
 
     def convert_stream(input, output)

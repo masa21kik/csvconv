@@ -10,9 +10,15 @@ describe CSVConv do
       @input = File.open(input_path)
     end
 
+    def expect_file_path
+      dir = File.dirname(input_path)
+      base = File.basename(input_path, '.*').sub('_noheader', '')
+      File.join(dir, "#{base}.#{format}")
+    end
+
     it 'convert file format' do
       actual = CSVConv.send("csv2#{format}", @input, options)
-      expected = File.read(input_path.sub(/[^\.]+$/, format))
+      expected = File.read(expect_file_path)
       expect(actual).to eq expected
     end
 
@@ -26,6 +32,26 @@ describe CSVConv do
   context 'CSV with header (books.csv)' do
     let(:input_path) { File.join(fixture_dir, 'books.csv') }
     let(:options) { {} }
+
+    describe '#csv2json' do
+      let(:format) { 'json' }
+      it_behaves_like 'convert file format'
+    end
+
+    describe '#csv2yaml' do
+      let(:format) { 'yaml' }
+      it_behaves_like 'convert file format'
+    end
+
+    describe '#csv2ltsv' do
+      let(:format) { 'ltsv' }
+      it_behaves_like 'convert file format'
+    end
+  end
+
+  context 'CSV without header (books.csv)' do
+    let(:input_path) { File.join(fixture_dir, 'books_noheader.csv') }
+    let(:options) { { header: %w(Title Author Price) } }
 
     describe '#csv2json' do
       let(:format) { 'json' }

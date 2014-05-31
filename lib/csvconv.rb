@@ -5,20 +5,20 @@ require 'csvconv/converter'
 
 # CSV Converter
 module CSVConv
-  def to_json(input, output, options)
+  def csv2json(input, options)
     cv = Converter.new(:json, options)
-    cv.convert_stream(input, output)
+    cv.convert(input)
   end
 
-  def to_yaml(input, output, options)
+  def csv2yaml(input, options)
     cv = Converter.new(:yaml, options)
-    cv.convert(input, output)
+    cv.convert(input)
   end
 
-  def to_ltsv(input, output, options)
+  def csv2ltsv(input, options)
     cv = Converter.new(:ltsv, options)
-    cv.convert_stream(input, output)
+    cv.convert(input)
   end
 
-  module_function :to_json, :to_yaml, :to_ltsv
+  module_function :csv2json, :csv2yaml, :csv2ltsv
 end

@@ -41,7 +41,7 @@ if $PROGRAM_NAME == __FILE__
 
   inputs = ARGV.empty? ? [STDIN] : ARGV.map { |f| File.open(f) }
   inputs.each do |input|
-    CSVConv.send("to_#{format.to_s}", input, output, options)
+    output.puts CSVConv.send("csv2#{format.to_s}", input, options)
   end
 
   output.close

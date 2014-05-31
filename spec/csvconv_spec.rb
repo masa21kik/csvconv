@@ -7,12 +7,12 @@ describe CSVConv do
 
   shared_examples_for 'convert file format' do
     before do
-      @input = File.open(input_csv)
+      @input = File.open(input_path)
     end
 
     it 'convert file format' do
       actual = CSVConv.send("csv2#{format}", @input, options)
-      expected = File.read(input_csv.sub(/csv$/, format))
+      expected = File.read(input_path.sub(/[^\.]+$/, format))
       expect(actual).to eq expected
     end
 
@@ -24,8 +24,28 @@ describe CSVConv do
   let(:fixture_dir) { File.expand_path('../fixtures', __FILE__) }
 
   context 'CSV with header (books.csv)' do
-    let(:input_csv) { File.join(fixture_dir, 'books.csv') }
+    let(:input_path) { File.join(fixture_dir, 'books.csv') }
     let(:options) { {} }
+
+    describe '#csv2json' do
+      let(:format) { 'json' }
+      it_behaves_like 'convert file format'
+    end
+
+    describe '#csv2yaml' do
+      let(:format) { 'yaml' }
+      it_behaves_like 'convert file format'
+    end
+
+    describe '#csv2ltsv' do
+      let(:format) { 'ltsv' }
+      it_behaves_like 'convert file format'
+    end
+  end
+
+  context 'TSV with header (books.tsv)' do
+    let(:input_path) { File.join(fixture_dir, 'books.tsv') }
+    let(:options) { { sep: "\t" } }
 
     describe '#csv2json' do
       let(:format) { 'json' }

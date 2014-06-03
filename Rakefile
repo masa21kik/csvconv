@@ -46,7 +46,7 @@ task :flog do
   end
 end
 
-Rubocop::RakeTask.new do |task|
+RuboCop::RakeTask.new do |task|
   task.patterns = %w(lib/**/*.rb
                      spec/**/*.rb
                      Rakefile

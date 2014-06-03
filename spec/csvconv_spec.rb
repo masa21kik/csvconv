@@ -2,7 +2,7 @@ require 'spec_helper'
 
 describe CSVConv do
   it 'should have a version number' do
-    CSVConv::VERSION.should_not be_nil
+    expect(CSVConv::VERSION).not_to be_nil
   end
 
   shared_examples_for 'convert file format' do

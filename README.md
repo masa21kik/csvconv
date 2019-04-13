@@ -32,7 +32,7 @@ Or install it yourself as:
             --json             Output in JSON format
             --yaml             Output in YAML format
             --ltsv             Output in LTSV format
-        -s, --separator SEP    Set separator charactor (default is ',')
+        -s, --separator SEP    Set separator character (default is ',')
         -o, --output FILE      Write output to file
         -H, --headers HEADERS  List of headers separated with ','
         -h, --help             Show this message

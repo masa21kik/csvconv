@@ -1,6 +1,6 @@
 require "spec_helper"
 
-describe CSVConv::Converter do
+describe Csvconv::Converter do
   shared_examples_for "convert file format stream" do
     before do
       @input = File.open(input_path)
@@ -8,7 +8,7 @@ describe CSVConv::Converter do
     end
 
     it "convert file format stream" do
-      cv = CSVConv::Converter.new(format, options)
+      cv = Csvconv::Converter.new(format, options)
       cv.convert_stream(@input, @output)
       actual = @output.string
       expected = File.read(input_path.sub(/[^\.]+$/, format))

@@ -4,7 +4,7 @@ require "csvconv/formatter"
 require "csvconv/converter"
 
 # CSV Converter
-module CSVConv
+module Csvconv
   def csv2json(input, options)
     cv = Converter.new(:json, options)
     cv.convert(input)

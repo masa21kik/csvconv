@@ -34,13 +34,13 @@ opt.on("-h", "--help", "Show this message") do
   abort(opt.help)
 end
 opt.on("-v", "--version", "Show version") do
-  puts CSVConv::VERSION
+  puts Csvconv::VERSION
 end
 opt.parse!(ARGV)
 
 inputs = ARGV.empty? ? [STDIN] : ARGV.map {|f| File.open(f) }
 inputs.each do |input|
-  output.puts CSVConv.send("csv2#{format}", input, options)
+  output.puts Csvconv.send("csv2#{format}", input, options)
 end
 
 output.close

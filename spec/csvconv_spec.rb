@@ -1,9 +1,9 @@
 require "spec_helper"
 
-describe CSVConv do
+describe Csvconv do
   let(:fixture_dir) { File.expand_path("fixtures", __dir__) }
   it "has a version number" do
-    expect(CSVConv::VERSION).not_to be_nil
+    expect(Csvconv::VERSION).not_to be_nil
   end
 
   shared_examples_for "convert file format" do
@@ -18,7 +18,7 @@ describe CSVConv do
     end
 
     it "convert file format" do
-      actual = CSVConv.send("csv2#{format}", @input, options)
+      actual = Csvconv.send("csv2#{format}", @input, options)
       expected = File.read(expect_file_path)
       expect(actual).to eq expected
     end

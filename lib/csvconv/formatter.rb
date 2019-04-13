@@ -1,7 +1,7 @@
 require "json"
 require "yaml"
 
-module CSVConv
+module Csvconv
   # Format Hash Array
   module Formatter
     def json(hash_array)

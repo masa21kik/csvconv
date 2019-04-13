@@ -1,4 +1,4 @@
-module CSVConv
+module Csvconv
   # Converter from CSV
   class Converter
     def initialize(format, options)

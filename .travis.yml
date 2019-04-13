@@ -1,12 +1,23 @@
 language: ruby
 rvm:
-  - 2.2.2
   - 2.3
   - 2.4
   - 2.5
   - 2.6
 bundler_args: "--jobs=2"
 cache: bundler
-before_install:
-  - travis_retry gem update --system || travis_retry gem update --system 2.7.8
-  - travis_retry gem install bundler --no-document || travis_retry gem install bundler --no-document -v 1.17.3
+script:
+  - bundle exec rspec
+stages:
+  - test
+  - lint
+jobs:
+  include:
+    - stage: lint
+      name: rubocop
+      rvm: 2.6
+      script: bundle exec rubocop
+notifications:
+  email: false
+  slack:
+    secure: GLdeVkWryvt5u5b6GZoYppDZ3dGCV9NDNHY6y1+hCjR+MUyTntiRuuhGenoyLt2Im/Yeb4n2/h7ykXHZSwhKYTlmow/4zLtZ7aGBcgaD8EgupdHZWoz0AvEAk/ewm0dblDSWLa6WiMz8U7lh/y2CyjiGz5e1oO9w5LxncbYzCs8=

@@ -3,39 +3,19 @@
 require "csvconv"
 require "optparse"
 
-options = {
-  sep: ",",
-}
+options = { sep: "," }
 output = STDOUT
 format = :json
 
 opt = OptionParser.new
-opt.on("--json", "Output in JSON format") do
-  format = :json
-end
-opt.on("--yaml", "Output in YAML format") do
-  format = :yaml
-end
-opt.on("--ltsv", "Output in LTSV format") do
-  format = :ltsv
-end
-opt.on("-s", "--separator SEP",
-       "Set separator character (default is ',')") do |v|
-  options[:sep] = v
-end
-opt.on("-o", "--output FILE", "Write output to file") do |v|
-  output = File.open(v, "w")
-end
-opt.on("-H", "--headers HEADERS",
-       "List of headers separated with ','") do |v|
-  options[:header] = v.split(",")
-end
-opt.on("-h", "--help", "Show this message") do
-  abort(opt.help)
-end
-opt.on("-v", "--version", "Show version") do
-  puts Csvconv::VERSION
-end
+opt.on("--json", "Output in JSON format") { format = :json }
+opt.on("--yaml", "Output in YAML format") { format = :yaml }
+opt.on("--ltsv", "Output in LTSV format") { format = :ltsv }
+opt.on("-s", "--separator SEP", "Set separator character (default is ',')") {|v| options[:sep] = v }
+opt.on("-o", "--output FILE", "Write output to file") {|v| output = File.open(v, "w") }
+opt.on("-H", "--headers HEADERS", "List of headers separated with ','") {|v| options[:header] = v.split(",") }
+opt.on("-h", "--help", "Show this message") { abort(opt.help) }
+opt.on("-v", "--version", "Show version") { puts Csvconv::VERSION }
 opt.parse!(ARGV)
 
 inputs = ARGV.empty? ? [STDIN] : ARGV.map {|f| File.open(f) }

@@ -1,46 +1,46 @@
 #!/usr/bin/env ruby
 
-require 'csvconv'
-require 'optparse'
+require "csvconv"
+require "optparse"
 
 options = {
-  sep: ',',
+  sep: ",",
 }
 output = STDOUT
 format = :json
 
 opt = OptionParser.new
-opt.on('--json', 'Output in JSON format') do
+opt.on("--json", "Output in JSON format") do
   format = :json
 end
-opt.on('--yaml', 'Output in YAML format') do
+opt.on("--yaml", "Output in YAML format") do
   format = :yaml
 end
-opt.on('--ltsv', 'Output in LTSV format') do
+opt.on("--ltsv", "Output in LTSV format") do
   format = :ltsv
 end
-opt.on('-s', '--separator SEP',
-       'Set separator charactor (default is \',\')') do |v|
+opt.on("-s", "--separator SEP",
+       "Set separator charactor (default is ',')") do |v|
   options[:sep] = v
 end
-opt.on('-o', '--output FILE', 'Write output to file') do |v|
-  output = File.open(v, 'w')
+opt.on("-o", "--output FILE", "Write output to file") do |v|
+  output = File.open(v, "w")
 end
-opt.on('-H', '--headers HEADERS',
-       'List of headers separated with \',\'') do |v|
-  options[:header] = v.split(',')
+opt.on("-H", "--headers HEADERS",
+       "List of headers separated with ','") do |v|
+  options[:header] = v.split(",")
 end
-opt.on('-h', '--help', 'Show this message') do
+opt.on("-h", "--help", "Show this message") do
   abort(opt.help)
 end
-opt.on('-v', '--version', 'Show version') do
+opt.on("-v", "--version", "Show version") do
   puts CSVConv::VERSION
 end
 opt.parse!(ARGV)
 
-inputs = ARGV.empty? ? [STDIN] : ARGV.map { |f| File.open(f) }
+inputs = ARGV.empty? ? [STDIN] : ARGV.map {|f| File.open(f) }
 inputs.each do |input|
-  output.puts CSVConv.send("csv2#{format.to_s}", input, options)
+  output.puts CSVConv.send("csv2#{format}", input, options)
 end
 
 output.close

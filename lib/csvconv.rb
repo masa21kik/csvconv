@@ -1,7 +1,7 @@
-require 'csvconv/version'
-require 'csvconv/parser'
-require 'csvconv/formatter'
-require 'csvconv/converter'
+require "csvconv/version"
+require "csvconv/parser"
+require "csvconv/formatter"
+require "csvconv/converter"
 
 # CSV Converter
 module CSVConv

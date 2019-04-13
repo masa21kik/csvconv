@@ -3,7 +3,7 @@ module CSVConv
   class Converter
     def initialize(format, options)
       @format = format
-      @sep = options[:sep] || ','
+      @sep = options[:sep] || ","
       @header = options[:header]
     end
 

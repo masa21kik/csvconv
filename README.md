@@ -1,4 +1,4 @@
-# CSVConv
+# Csvconv
 
 CSV converter to JSON, YAML, LTSV
 

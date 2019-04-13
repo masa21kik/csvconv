@@ -1,6 +1,6 @@
-require 'csv'
+require "csv"
 
-module CSVConv
+module Csvconv
   # Parse CSV to Hash
   module Parser
     def read_header(input, sep)

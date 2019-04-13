@@ -1,13 +1,11 @@
-require 'json'
-require 'yaml'
+require "json"
+require "yaml"
 
-module CSVConv
+module Csvconv
   # Format Hash Array
   module Formatter
     def json(hash_array)
-      hash_array.map do |hash|
-        hash.to_json + "\n"
-      end.join
+      hash_array.map {|hash| hash.to_json + "\n" }.join
     end
 
     def yaml(hash_array)
@@ -15,9 +13,7 @@ module CSVConv
     end
 
     def ltsv(hash_array)
-      hash_array.map do |hash|
-        hash.map { |key, val| [key, val].join(':') }.join("\t") + "\n"
-      end.join
+      hash_array.map {|hash| hash.map {|key, val| [key, val].join(":") }.join("\t") + "\n" }.join
     end
 
     module_function :json, :yaml, :ltsv
